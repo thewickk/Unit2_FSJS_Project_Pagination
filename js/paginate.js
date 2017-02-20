@@ -1,12 +1,13 @@
 //Create variable to hold student list using ul class="student-list"
 const $allStudents = $(".student-list li").length;
 const $students = $(".student-list").children();
+const $tenStudents = 10;
 
 
 //jQuery to show only 10 students at a time
 //need a const to get all of the .student-list children
 //need to hide $students and then show the subset of 10
-$($students).hide().slice(0,9).show();
+$($students).hide().slice(0, $tenStudents).show();
 
 //Dynamically add pagination links 
 const pagLinks = $("<div class='pagination'><ul></ul></div>");
@@ -72,7 +73,9 @@ $(".search-button").on("click", function() {
 	if ($matchStudent.length === 0) {
 		$noResults.show();
 		$(".student-list").append($noResults);
-	} 
+	} else {
+		$(".student-search").val('');
+	}
 });
 
 
